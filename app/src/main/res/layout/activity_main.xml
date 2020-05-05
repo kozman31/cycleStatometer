@@ -6,30 +6,192 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/power_title"
+        android:layout_width="145dp"
+        android:layout_height="32dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/edit_message"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
+        android:layout_marginTop="8dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="0dp"
+        android:text="@string/power_title"
+        android:textAlignment="center"
+        android:textAppearance="@style/StatLabel"
+        app:layout_constraintEnd_toStartOf="@+id/hr_title"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/power_disp" />
+
+    <TextView
+        android:id="@+id/speed_disp"
+        android:layout_width="145dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/border"
+        android:text="103"
+        android:paddingLeft="5dp"
+        android:textAlignment="center"
+        android:textAppearance="@style/StatDisplay"
+        app:layout_constraintBottom_toTopOf="@+id/speed_title"
+        app:layout_constraintEnd_toStartOf="@+id/cadence_disp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginRight="16dp"
-        android:onClick="startDisoveru"
-        android:text="@string/send_button"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editText"
+    <TextView
+        android:id="@+id/hr_disp"
+        android:layout_width="145dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border"
+        android:text="99"
+        android:paddingLeft="5dp"
+        android:textAlignment="center"
+        android:textAppearance="@style/StatDisplay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editText" />
+        app:layout_constraintStart_toEndOf="@+id/power_disp"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/power_disp"
+        android:layout_width="145dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/border"
+        android:text="252"
+        android:paddingLeft="5dp"
+        android:textAlignment="center"
+        android:textAppearance="@style/StatDisplay"
+        app:layout_constraintEnd_toStartOf="@+id/hr_disp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/speed_title" />
+
+    <TextView
+        android:id="@+id/cadence_disp"
+        android:layout_width="145dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border"
+        android:text="85"
+        android:paddingLeft="5dp"
+        android:textAlignment="center"
+        android:textAppearance="@style/StatDisplay"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/speed_disp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="145dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="0dp"
+        android:text="@string/cadence_title"
+        android:textAlignment="center"
+        android:textAppearance="@style/StatLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/speed_title"
+        app:layout_constraintTop_toBottomOf="@+id/cadence_disp" />
+
+    <TextView
+        android:id="@+id/hr_title"
+        android:layout_width="145dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="0dp"
+        android:text="@string/hr_title"
+        android:textAlignment="center"
+        android:textAppearance="@style/StatLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/power_title"
+        app:layout_constraintTop_toBottomOf="@+id/hr_disp" />
+
+    <TextView
+        android:id="@+id/speed_title"
+        android:layout_width="145dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="0dp"
+        android:text="@string/speed_title"
+        android:textAlignment="center"
+        android:textAppearance="@style/StatLabel"
+        app:layout_constraintEnd_toStartOf="@+id/textView8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/speed_disp" />
+
+    <Button
+        android:id="@+id/workoutStart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="@string/start_button"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="36dp"
+            android:onClick="startDisoveru"
+            android:text="@string/send_button" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/formula_button" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="105dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/border"
+        android:textAppearance="@style/StatDisplay"
+        android:textSize="35sp"
+        android:paddingLeft="5dp"
+        android:textAlignment="viewEnd"
+        android:format="@string/chronometer_initial_format"
+        app:layout_constraintBottom_toTopOf="@+id/workoutStart"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

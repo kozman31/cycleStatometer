@@ -7,5 +7,14 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="StatDisplay">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">65sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="StatLabel">
+        <item name="android:textSize">24sp</item>
+        <item name="android:paddingStart">5dp</item>
+    </style>
 
 </resources>

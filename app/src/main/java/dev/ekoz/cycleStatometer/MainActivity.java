@@ -8,7 +8,10 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.SystemClock;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Chronometer;
 
 import dev.ekoz.cycleStatometer.services.ConnectionService;
 
@@ -16,13 +19,21 @@ public class MainActivity extends AppCompatActivity {
 
     ConnectionService connectionService;
     private boolean mBound1;
-    boolean mBound = false;
-    int clc = 0;
+
+    private Button mStartWorkoutButton;
+    private Chronometer mChronometer;
+    private Boolean mIsTimerRunning;
+    private Long mTimeWhenStopped;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mChronometer = findViewById(R.id.chronometer);
+        mStartWorkoutButton = findViewById(R.id.workoutStart);
+        mStartWorkoutButton.setOnClickListener(mStartStopWorkoutListener);
+        mTimeWhenStopped = 0L;
+        mIsTimerRunning =false;
     }
     @Override
     protected  void onStart(){
@@ -59,5 +70,26 @@ public class MainActivity extends AppCompatActivity {
             unbindService(mConnection);
             mBound1 = false;
         }
+    }
+
+    View.OnClickListener mStartStopWorkoutListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            if(mIsTimerRunning){
+                stopTimer();
+            } else{
+                startTimer();
+            }
+            mIsTimerRunning = !mIsTimerRunning;
+        }
+    };
+
+    public void startTimer(){
+        mChronometer.setBase(SystemClock.elapsedRealtime() + mTimeWhenStopped);
+        mChronometer.start();
+    }
+
+    private void stopTimer(){
+        mTimeWhenStopped = mChronometer.getBase() - SystemClock.elapsedRealtime();
+        mChronometer.stop();
     }
 }
